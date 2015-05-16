@@ -1,6 +1,6 @@
 {
   "name": "node-sandbox",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": true,
   "dependencies": {
     "express": "~3.2.x",

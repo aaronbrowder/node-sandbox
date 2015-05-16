@@ -3,8 +3,8 @@
 var client = (function () {
 
 	var initModule = function ($root) {
-		var catHtml = Handlebars.templates.sample({ text: 'meow' });
-		var dogHtml = Handlebars.templates.dimple({ text: 'woof' });
+		var catHtml = Handlebars.templates.cat({ text: 'meow' });
+		var dogHtml = Handlebars.templates.dog({ text: 'woof' });
 	  $root.html(catHtml).append(dogHtml);
 	};
 	
