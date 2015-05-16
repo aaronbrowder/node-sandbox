@@ -1,6 +1,6 @@
 /*global $, Handlebars */
 
-var client = (function () {
+window.client = (function () {
 
 	var initModule = function ($root) {
 		var catHtml = Handlebars.templates.cat({ text: 'meow' });
