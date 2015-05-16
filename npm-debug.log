@@ -1,27 +1,85 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/home/ubuntu/.nvm/v0.10.35/bin/node',
 1 verbose cli   '/home/ubuntu/.nvm/v0.10.35/bin/npm',
-1 verbose cli   'install' ]
+1 verbose cli   'install',
+1 verbose cli   'Handlebars' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.35
-4 error install Couldn't read dependencies
-5 error Error: Invalid name: "Node Sandbox"
-5 error     at ensureValidName (/home/ubuntu/.nvm/v0.10.35/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/fixer.js:315:15)
-5 error     at Object.module.exports.fixNameField (/home/ubuntu/.nvm/v0.10.35/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/fixer.js:204:5)
-5 error     at /home/ubuntu/.nvm/v0.10.35/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js:30:38
-5 error     at Array.forEach (native)
-5 error     at normalize (/home/ubuntu/.nvm/v0.10.35/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js:29:15)
-5 error     at final (/home/ubuntu/.nvm/v0.10.35/lib/node_modules/npm/node_modules/read-package-json/read-json.js:342:33)
-5 error     at then (/home/ubuntu/.nvm/v0.10.35/lib/node_modules/npm/node_modules/read-package-json/read-json.js:126:33)
-5 error     at /home/ubuntu/.nvm/v0.10.35/lib/node_modules/npm/node_modules/read-package-json/read-json.js:331:40
-5 error     at evalmachine.<anonymous>:272:14
-5 error     at /home/ubuntu/.nvm/v0.10.35/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:102:5
-6 error If you need help, you may report this *entire* log,
-6 error including the npm and node versions, at:
-6 error     <http://github.com/npm/npm/issues>
-7 error System Linux 3.14.13-c9
-8 error command "/home/ubuntu/.nvm/v0.10.35/bin/node" "/home/ubuntu/.nvm/v0.10.35/bin/npm" "install"
-9 error cwd /home/ubuntu/workspace
-10 error node -v v0.10.35
-11 error npm -v 1.4.28
-12 verbose exit [ 1, true ]
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'Handlebars', null ]
+6 verbose cache add name=undefined spec="Handlebars" args=["Handlebars",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'Handlebars',
+7 verbose parsed url   path: 'Handlebars',
+7 verbose parsed url   href: 'Handlebars' }
+8 silly lockFile 44148920-Handlebars Handlebars
+9 verbose lock Handlebars /home/ubuntu/.npm/44148920-Handlebars.lock
+10 silly lockFile 44148920-Handlebars Handlebars
+11 silly lockFile 44148920-Handlebars Handlebars
+12 verbose addNamed [ 'Handlebars', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile ef924136-Handlebars Handlebars@
+15 verbose lock Handlebars@ /home/ubuntu/.npm/ef924136-Handlebars.lock
+16 silly addNameRange { name: 'Handlebars', range: '*', hasData: false }
+17 verbose request where is /Handlebars
+18 verbose request registry https://registry.npmjs.org/
+19 verbose request id 1c1f35fd0af5c4b0
+20 verbose url raw /Handlebars
+21 verbose url resolving [ 'https://registry.npmjs.org/', './Handlebars' ]
+22 verbose url resolved https://registry.npmjs.org/Handlebars
+23 verbose request where is https://registry.npmjs.org/Handlebars
+24 info trying registry request attempt 1 at 06:02:59
+25 http GET https://registry.npmjs.org/Handlebars
+26 http 404 https://registry.npmjs.org/Handlebars
+27 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   'cache-control': 'max-age=0',
+27 verbose headers   'content-length': '51',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   date: 'Sat, 16 May 2015 06:02:59 GMT',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   age: '0',
+27 verbose headers   connection: 'keep-alive',
+27 verbose headers   'x-served-by': 'cache-dfw1823-DFW',
+27 verbose headers   'x-cache': 'MISS',
+27 verbose headers   'x-cache-hits': '0',
+27 verbose headers   'x-timer': 'S1431756179.665384,VS0,VE50' }
+28 silly registry.get cb [ 404,
+28 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '51',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     date: 'Sat, 16 May 2015 06:02:59 GMT',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     connection: 'keep-alive',
+28 silly registry.get     'x-served-by': 'cache-dfw1823-DFW',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1431756179.665384,VS0,VE50' } ]
+29 silly lockFile ef924136-Handlebars Handlebars@
+30 silly lockFile ef924136-Handlebars Handlebars@
+31 error 404 404 Not Found: Handlebars
+31 error 404
+31 error 404 'Handlebars' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404 It was specified as a dependency of 'node-sandbox'
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Linux 3.14.13-c9
+33 error command "/home/ubuntu/.nvm/v0.10.35/bin/node" "/home/ubuntu/.nvm/v0.10.35/bin/npm" "install" "Handlebars"
+34 error cwd /home/ubuntu/workspace
+35 error node -v v0.10.35
+36 error npm -v 1.4.28
+37 error code E404
+38 verbose exit [ 1, true ]

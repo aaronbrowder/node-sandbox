@@ -7,24 +7,27 @@
 
 	<title>Node Sandbox</title>
 
-	<!--<link rel="stylesheet" href="css/main.css" type="text/css"/>-->
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="css/main.css" type="text/css"/>
 
+	<!-- third-party javascript -->
 	<script src="js/third-party/jquery.min.js"></script>
-	<!--<script src="js/client.js"></script>-->
+	<script src="js/third-party/handlebars.runtime.min.js"></script>
+	
+	<!-- our javascript -->
+	<script src="js/client.js"></script>
+	<script src="js/templates.js"></script>
 	
 	<script>
+		/*global $, client */
 		$(function () {
-			//$spa.initModule($('#spa')); 
+			client.initModule($('#root')); 
 		});
 	</script>
 	
-	<script id="sample-template" type="text/x-handlebars-template">
-		<div></div>
-  </script>
-  
 </head>
 <body>
-	<div>
+	<div id='root'>
 		Hello World!
 	</div>
 </body>
