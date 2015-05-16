@@ -1,17 +1,1 @@
-(function() {
-  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
-templates['cat'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
-
-  return "<div>\n  The dog says \""
-    + this.escapeExpression(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"text","hash":{},"data":data}) : helper)))
-    + "\"\n</div>";
-},"useData":true});
-templates['dog'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
-
-  return "<div>\n  The cat says: "
-    + this.escapeExpression(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"text","hash":{},"data":data}) : helper)))
-    + "\n</div>";
-},"useData":true});
-})();
+!function(){var e=Handlebars.template,t=Handlebars.templates=Handlebars.templates||{};t.cat=e({compiler:[6,">= 2.0.0-beta.1"],main:function(e,t,a,n){var s,i="function",l=t.helperMissing,r=this.escapeExpression;return'<div>\n  The cat says "'+r((s=null!=(s=t.text||(null!=e?e.text:e))?s:l,typeof s===i?s.call(e,{name:"text",hash:{},data:n}):s))+'"\n</div>'},useData:!0}),t.cow=e({compiler:[6,">= 2.0.0-beta.1"],main:function(e,t,a,n){var s,i="function",l=t.helperMissing,r=this.escapeExpression;return'<div>\n  The cow says "'+r((s=null!=(s=t.text||(null!=e?e.text:e))?s:l,typeof s===i?s.call(e,{name:"text",hash:{},data:n}):s))+'"\n</div>'},useData:!0}),t.dog=e({compiler:[6,">= 2.0.0-beta.1"],main:function(e,t,a,n){var s,i="function",l=t.helperMissing,r=this.escapeExpression;return'<div>\n  The dog says "'+r((s=null!=(s=t.text||(null!=e?e.text:e))?s:l,typeof s===i?s.call(e,{name:"text",hash:{},data:n}):s))+'"\n</div>'},useData:!0})}();
