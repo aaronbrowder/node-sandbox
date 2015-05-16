@@ -49,6 +49,8 @@ app.configure('production', function() {
 app.configure(function() {
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  // try using Passport (npm) for authentication
+  //app.use(express.basicAuth('user', 'pass'));
   app.use(express.static(path.resolve(__dirname, '../client')));
   app.use(app.router);
 });
