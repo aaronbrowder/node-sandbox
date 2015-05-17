@@ -3,7 +3,7 @@
 window.client = (function () {
 
 	var initModule = function ($root) {
-		var catHtml = Handlebars.templates.cat({ text: 'meow' });
+		var catHtml = Handlebars.templates.example({ text: 'meow' });
 	  $root.html(catHtml);
 	};
 	
