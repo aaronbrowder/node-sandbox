@@ -25,7 +25,7 @@ var server = http.createServer(app);
 app.configure('development', function() {
   handlebarsPrecompiler.watchDir(
     path.resolve(__dirname, "../client/templates"),
-    path.resolve(__dirname, "../client/javascript/templates.js"),
+    path.resolve(__dirname, "../client/javascript/compiled/templates.js"),
     ['handlebars', 'hbs']
   );
   app.use(sassMiddleware({
