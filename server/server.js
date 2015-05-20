@@ -14,7 +14,7 @@ var express = require('express');
 var sassMiddleware = require('node-sass-middleware');
 var handlebarsPrecompiler = require('handlebars-precompiler');
 
-var routes = require('./routes');
+var routes = require('./routing');
 
 var app = express();
 var server = http.createServer(app);
@@ -61,3 +61,5 @@ routes.configRoutes(app, server);
 ///////////////////////// START SERVER /////////////////////////
 
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0");
+
+console.log('process.env.IP: ' + process.env.IP);
