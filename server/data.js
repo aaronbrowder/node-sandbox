@@ -65,7 +65,7 @@ var read = function(collection_name, id, callback) {
 module.exports = {
   list: list,
   create: create,
-  read: read,
-  update: update,
-  _delete: _delete
+  read: read
+  // update: update,
+  // _delete: _delete
 };

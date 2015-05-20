@@ -8,7 +8,7 @@
 
 'use strict';
 
-var db = require('./db');
+var db = require('./data');
 
 var configRoutes = function(app, server) {
   
