@@ -22,18 +22,17 @@ var server = http.createServer(app);
 ////////////////////////////////////////////////////////////////
 //////////////////////// CONFIGURATION /////////////////////////
 
-handlebarsPrecompiler.watchDir(
-  path.resolve(__dirname, "../client/templates"),
-  path.resolve(__dirname, "../client/javascript/templates.js"),
-  ['handlebars', 'hbs']
-);
-
 app.configure('development', function() {
+  handlebarsPrecompiler.watchDir(
+    path.resolve(__dirname, "../client/templates"),
+    path.resolve(__dirname, "../client/javascript/templates.js"),
+    ['handlebars', 'hbs']
+  );
   app.use(sassMiddleware({
     src: path.resolve(__dirname, '../client/stylesheets'),
-    dest: path.resolve(__dirname, '../client/stylesheets/compiled'),
+    dest: path.resolve(__dirname, '../client/stylesheets/css'),
     debug: true,
-    prefix: '/stylesheets/compiled'
+    prefix: '/stylesheets/css'
   }));
   app.use(express.logger());
   app.use(express.errorHandler({
