@@ -3,11 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "async": "~1.0.x",
+    "browserify-middleware": "~5.0.x",
+    "domthing": "~0.4.0",
     "express": "~3.2.x",
-    "socket.io": "~1.3.x",
+    "glob": "~5.0.x",
+    "mkdirp": "~0.5.x",
     "mongodb": "~2.0.x",
-    "handlebars": "~3.0.x",
-    "handlebars-precompiler": "~2.1.x",
-    "node-sass-middleware": "~0.6.x"
+    "node-sass": "~3.1.x",
+    "node-sass-middleware": "~0.8.x",
+    "socket.io": "~1.3.x",
+    "underscore": "~1.8.x"
   }
 }
