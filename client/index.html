@@ -7,23 +7,9 @@
 
 	<title>Node Sandbox</title>
 
-	<!-- stylesheets -->
-	<link rel="stylesheet" href="/stylesheets/css/example.css" type="text/css"/>
+	<script src="javascript/compiled/bundle.js"></script>
 
-	<!-- third-party javascript -->
-	<script src="javascript/third-party/jquery.min.js"></script>
-	<script src="javascript/third-party/handlebars.runtime.min.js"></script>
-	
-	<!-- our javascript (order matters) -->
-	<script src="javascript/compiled/templates.js"></script>
-	<script src="javascript/client.js"></script>
-	
-	<script>
-		/*global $, client */
-		$(function () {
-			client.initModule($('#root')); 
-		});
-	</script>
+	<link rel="stylesheet" href="/stylesheets/compiled/example.css" type="text/css"/>
 	
 </head>
 <body>

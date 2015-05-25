@@ -1,18 +1,11 @@
-/*jslint
-	browser: true, 	continue: true, devel: true,
-	indent: 2, 		maxerr: 50, 	newcap: true,
-	newcap: true,	nomen: true,	plusplus: true,
-	regexp: true,	sloppy: true,	vars: false,
-	white: true
-*/
-
 'use strict';
 
 var http = require('http');
 var path = require('path');
 var express = require('express');
+var domthingMiddleware = require('./domthing-middleware');
+var browserify = require('browserify-middleware');
 var sassMiddleware = require('node-sass-middleware');
-var handlebarsPrecompiler = require('handlebars-precompiler');
 
 var routes = require('./routing');
 
@@ -23,18 +16,18 @@ var server = http.createServer(app);
 //////////////////////// CONFIGURATION /////////////////////////
 
 app.configure('development', function() {
-  handlebarsPrecompiler.watchDir(
-    path.resolve(__dirname, "../client/templates"),
-    path.resolve(__dirname, "../client/javascript/compiled/templates.js"),
-    ['handlebars', 'hbs']
-  );
+  app.get('/javascript/compiled/bundle.js', domthingMiddleware({
+    srcDir: path.resolve(__dirname, '../client/templates'),
+    destPath: path.resolve(__dirname, '../client/javascript/compiled/templates.js'),
+  }));
+  app.get('/javascript/compiled/bundle.js', 
+    browserify('../client/javascript/client.js'));
   app.use(sassMiddleware({
     src: path.resolve(__dirname, '../client/stylesheets'),
-    dest: path.resolve(__dirname, '../client/stylesheets/css'),
-    debug: true,
-    prefix: '/stylesheets/css'
+    dest: path.resolve(__dirname, '../client/stylesheets/compiled'),
+    prefix: '/stylesheets/compiled'
   }));
-  app.use(express.logger());
+  //app.use(express.logger());
   app.use(express.errorHandler({
     dumpExceptions: true,
     showStack: true
