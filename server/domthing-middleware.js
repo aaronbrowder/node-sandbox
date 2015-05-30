@@ -7,16 +7,24 @@ var async = require('async');
 var domthing = require('domthing');
 
 module.exports = function(params) {
-  var srcDir = params.srcDir;
-  var destPath = params.destPath;
+  var targetUrl = params.targetUrl;
+  var templatesSrcDir = params.templatesSrcDir;
+  var templatesDestPath = params.templatesDestPath;
   
   return function(request, response, next) {
     
-    fs.readdir(srcDir, function(err, srcFiles) {
+    var requestUrl = path.resolve(request.url);
+    
+    if ((targetUrl != requestUrl) ||
+        (request.method != 'GET' && request.method != 'HEAD')) {
+      return next();
+    }
+    
+    fs.readdir(templatesSrcDir, function(err, srcFiles) {
       if (err) throw err;
-      var srcMtime = getLatestModifiedTime(srcDir, srcFiles);
+      var srcMtime = getLatestModifiedTime(templatesSrcDir, srcFiles);
       
-      fs.stat(destPath, function(err, destStats) {
+      fs.stat(templatesDestPath, function(err, destStats) {
         // ENOENT means the file does not exist (which is fine)
         if (err && err.code != 'ENOENT') throw err;
         var destMtime = destStats ? destStats.mtime : null;
@@ -25,7 +33,7 @@ module.exports = function(params) {
         // var d = destMtime.toString();
         
         if (!srcMtime || !destMtime || srcMtime > destMtime) {
-          compile(srcDir, destPath, next);
+          compile(templatesSrcDir, templatesDestPath, next);
         } else {
           next();
         }

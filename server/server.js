@@ -1,11 +1,15 @@
 'use strict';
 
-var http = require('http');
-var path = require('path');
+var bodyParser = require('body-parser');
+var browserify = require('browserify-middleware');
+var errorHandler = require('errorhandler');
 var express = require('express');
 var domthingMiddleware = require('./domthing-middleware');
-var browserify = require('browserify-middleware');
+var http = require('http');
+var methodOverride = require('method-override');
+var path = require('path');
 var sassMiddleware = require('node-sass-middleware');
+var serveStatic = require('serve-static');
 
 var routes = require('./routing');
 
@@ -16,38 +20,35 @@ var server = http.createServer(app);
 //////////////////////// CONFIGURATION /////////////////////////
 
 app.configure('development', function() {
-  app.get('/javascript/compiled/bundle.js', domthingMiddleware({
-    srcDir: path.resolve(__dirname, '../client/templates'),
-    destPath: path.resolve(__dirname, '../client/javascript/compiled/templates.js'),
+  // Compile templates
+  app.use(domthingMiddleware({
+    targetUrl: '/javascript/compiled/bundle.js',
+    templatesSrcDir: path.resolve(__dirname, '../client/templates'),
+    templatesDestPath: path.resolve(__dirname, 
+      '../client/javascript/compiled/templates.js'),
   }));
-  app.get('/javascript/compiled/bundle.js', 
+  // Browserify client js
+  app.use('/javascript/compiled/bundle.js', 
     browserify('../client/javascript/client.js'));
+  // Compile sass
   app.use(sassMiddleware({
     src: path.resolve(__dirname, '../client/stylesheets'),
     dest: path.resolve(__dirname, '../client/stylesheets/compiled'),
     prefix: '/stylesheets/compiled'
   }));
-  //app.use(express.logger());
-  app.use(express.errorHandler({
-    dumpExceptions: true,
-    showStack: true
-  }));
 });
 
 app.configure('production', function() {
-  app.use(express.errorHandler());
 });
 
 app.configure(function() {
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
+  app.use(errorHandler());
+  app.use(bodyParser.json());
+  app.use(methodOverride());
   // try using Passport (npm) for authentication
-  //app.use(express.basicAuth('user', 'pass'));
-  app.use(express.static(path.resolve(__dirname, '../client')));
-  app.use(app.router);
+  app.use(serveStatic(path.resolve(__dirname, '../client')));
+  routes.configRoutes(app, server);
 });
-
-routes.configRoutes(app, server);
 
 ////////////////////////////////////////////////////////////////
 ///////////////////////// START SERVER /////////////////////////
